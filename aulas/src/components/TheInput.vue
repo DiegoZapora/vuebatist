@@ -1,7 +1,7 @@
 <template>
     <form>
         <input type="text" v-model="inputName" placeholder="Digite seu nome">
-        <button type="submit" v-on:click="submitForm">Enviar</button>
+        <button type="submit" v-on:click="submitForm">Mostrar</button>
     </form>
     <p>Em tempo real: {{ inputName }}</p>
     <p v-if="name">Seu nome é: {{ name }}</p>
@@ -9,7 +9,7 @@
 </template>
 
 <script>
-import sas from "../../public/sas.png"
+import sas from "../assets/sas.png"
 
 export default {
 
