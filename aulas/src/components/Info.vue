@@ -8,6 +8,7 @@
 
 <script>
 import Listinfo from './Listinfo.vue';
+
 export default {
     name: "Info",
     components: {

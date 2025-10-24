@@ -8,7 +8,8 @@
                 <hr />
             </div>
         </div>
-        <button @click="showSamp">{{ texto }}</button>
+        <button @click="showSamp(), avisoFunc(), some()">{{ texto }}</button> <br>
+        <small style="color: white;">{{ aviso }}</small>
     </div>
 </template>
 
@@ -18,48 +19,50 @@ export default {
     name: "ContaLegal",
     data() {
         return {
-            usuarios: {
-                usuario1: {
-                    id: 1,
-                    nome: "Andre Matos",
-                    idade: 47,
-                    profissao: "Cantor",
+            usuarios: [
+                {  
+                    id: 1, nome: "Andre Matos", idade: 47, profissao: "Cantor"
                 },
-                usuario2: {
-                    id: 2,
-                    nome: "Chester Bennington",
-                    idade: 41,
-                    profissao: "Cantor",
+
+                { 
+                    id: 2, nome: "Chester Bennington", idade: 41, profissao: "Cantor"
                 },
-                usuario4: {
-                    id: 4,
-                    nome: "Freddie Mercury",
-                    idade: 45,
-                    profissao: "Cantor",
-                    status: "Falecido",
-                    ano: 1991
+
+                { 
+                    id: 3, nome: "Jim Morrison", idade: 27, profissao: "Cantor"
                 },
-                usuario5: {
-                    id: 5,
-                    nome: "Jim Morrison",
-                    idade: 27,
-                    profissao: "Cantor",
+
+                { 
+                    id: 4, nome: "Freddie Mercury", idade: 45, profissao: "Cantor" 
                 },
-                usuario6: {
-                    id: 6,
-                    nome: "Mike Shinoda",
-                    idade: 44,
-                    profissao: "Músico e produtor musical",
+
+                {
+                    id: 5, nome: "Detran", idade: 0, profissao: "Destruidor de Sonhos"
                 }
-            },
-            mostrar: true,
-            texto: "Mostrar Usuários"
+            ],
+            mostrar: false,
+            texto: "Mostrar Usuários",
+            aviso: ""
         }
     },
     methods: {
-        showSamp() {
+        showSamp(e) {
             this.mostrar = !this.mostrar
             this.texto = this.mostrar ? "Esconder Usuários" : "Mostrar Usuários"
+        },
+        avisoFunc(e) {
+            if (this.mostrar) {
+                this.aviso = "Clique novamente para esconder a lista de usuários."
+            } else {
+                this.aviso = "Lista de usuários escondida."
+            }
+        },
+        some(e) {
+            setTimeout(() => {
+                if (!this.mostrar) {
+                    this.aviso = ""
+                }
+            }, 2500)
         }
     }
 }
